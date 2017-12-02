@@ -1,0 +1,1 @@
+# aop-simpleinjector-consoleapp
