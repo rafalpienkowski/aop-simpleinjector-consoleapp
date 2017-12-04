@@ -3,29 +3,27 @@ using SimpleConsoleApplication.Interfaces;
 
 namespace SimpleConsoleApplication.Interceptors
 {
+    /// <inheritdoc />
     /// <summary>
     /// Monitoring interceptor to check method execution time
     /// </summary>
-    public class MonitoringInterceptor : IInterceptor
+    public class MonitoringInterceptor : CustomBaseInterceptor
     {
-        private readonly ILogger _logger;
+        private Stopwatch _watch;
 
         // Using constructor injection on the interceptor
-        public MonitoringInterceptor(ILogger logger)
+        public MonitoringInterceptor(ILogger logger) : base(logger){ }
+        
+        protected override void PreProceedAction(IInvocation invocation)
         {
-            _logger = logger;
+            _watch = Stopwatch.StartNew();
         }
 
-        public void Intercept(IInvocation invocation)
+        protected override void PostProceedAction(IInvocation invocation)
         {
-            var watch = Stopwatch.StartNew();
-
-            // Calls the decorated instance.
-            invocation.Proceed();
-
             var decoratedType = invocation.InvocationTarget.GetType();
 
-            _logger.Log($"{decoratedType.Name}.{invocation.GetConcreteMethod().Name}() executed in {watch.ElapsedMilliseconds} ms.");
+            Logger.Log($"{decoratedType.Name}.{invocation.GetConcreteMethod().Name}() executed in {_watch.ElapsedMilliseconds} ms.");
         }
     }
 }

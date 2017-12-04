@@ -3,28 +3,24 @@ using SimpleConsoleApplication.Interfaces;
 
 namespace SimpleConsoleApplication.Interceptors
 {
+    /// <inheritdoc />
     /// <summary>
     /// Monitoring interceptor to method arguments and result call
     /// </summary>
-    public class LoggingInterceptor : IInterceptor
+    public class LoggingInterceptor : CustomBaseInterceptor
     {
-        private readonly ILogger _logger;
-
         // Using constructor injection on the interceptor
-        public LoggingInterceptor(ILogger logger)
+        public LoggingInterceptor(ILogger logger) : base(logger){ }
+
+        protected override void PreProceedAction(IInvocation invocation)
         {
-            _logger = logger;
+            Logger.Log($"{invocation.GetConcreteMethod().Name} argument(s): {string.Join(", ", invocation.Arguments.Select(a => a))}");
         }
 
-        public void Intercept(IInvocation invocation)
+        protected override void PostProceedAction(IInvocation invocation)
         {
-            _logger.Log($"{invocation.GetConcreteMethod().Name} argument(s): {string.Join(", ",invocation.Arguments.Select(a => a))}");
-
-            // Calls the decorated instance.
-            invocation.Proceed();
-
-            _logger.Log($"{invocation.GetConcreteMethod().Name} result { invocation.ReturnValue}");
-
+            Logger.Log($"{invocation.GetConcreteMethod().Name} result { invocation.ReturnValue}");
         }
+        
     }
 }

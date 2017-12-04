@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Concrete\ConsoleLogger.cs" />
+    <Compile Include="Interceptors\CustomBaseInterceptor.cs" />
     <Compile Include="Interceptors\LoggingInterceptor.cs" />
     <Compile Include="Interfaces\IFoo.cs" />
     <Compile Include="Interfaces\ILogger.cs" />
