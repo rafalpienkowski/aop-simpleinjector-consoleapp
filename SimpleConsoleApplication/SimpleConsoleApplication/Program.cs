@@ -29,7 +29,7 @@ namespace SimpleConsoleApplication
             Console.WriteLine($"Result for Bar(): {foo.Bar(DateTime.Now.Millisecond)}");
             Console.WriteLine();
             Console.WriteLine();
-            Console.WriteLine($"Result for Bizz(): {foo.Bizz(DateTime.Now.Millisecond)}");
+            Console.WriteLine($"Result for Baz(): {foo.Baz(DateTime.Now.Millisecond)}");
             Console.ReadKey();
         }
     }

@@ -13,10 +13,10 @@
         int Bar(int seed);
 
         /// <summary>
-        /// Bizz
+        /// Baz
         /// </summary>
         /// <param name="seed">Seed for Random generator</param>
         /// <returns>Returns some string</returns>
-        string Bizz(int seed);
+        string Baz(int seed);
     }
 }

@@ -20,7 +20,7 @@ namespace SimpleConsoleApplication.Concrete
             return _random.Next(0, 100);
         }
 
-        public string Bizz(int seed)
+        public string Baz(int seed)
         {
             _random = new Random(seed);
             return new string(Enumerable.Repeat(_chars, _random.Next(1,30))
