@@ -191,7 +191,7 @@ ___
 
 We end our day with application which is richer of logs and performance monitoring. We achieved that without any change in _RandomFoo_ concrete implementation. Furthermore we can utilize out interceptor is the future for other (even not created) interfaces and its implementations. Furthermore we can in few steps revert our application to the previous state. Any revert merge isn't required. Changes in dependency configuration are enough.
 
-Be careful about changing the value of the arguments and/or results. You shouldn't do that. This isn't good practice and it could confuse you in the future because it isn't easy to find where and why values were changed. Interceptors weren't designed for something like that. 
+Be careful about changing the value of methods result. You shouldn't do that. This isn't good practice and it could confuse you in the future because it isn't easy to find where and why values were changed. Interceptors weren't designed for something like that. 
 
 ![Hammer in finger](http://assets8.heart.co.uk/2012/39/oops-1348495688-large-article-1.jpg)
 
