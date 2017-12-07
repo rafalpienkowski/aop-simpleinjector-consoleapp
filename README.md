@@ -177,9 +177,9 @@ RandomFoo.Bar() executed in 0 ms.
 Bar result 8
 Result for Bar(): 8
 
-Bizz argument(s): 922
+Baz argument(s): 922
 RandomFoo.Baz() executed in 4 ms.
-Bizz result MIMRKA9BJUKQ
+Baz result MIMRKA9BJUKQ
 Result for Baz(): MIMRKA9BJUKQ
 ```
 
